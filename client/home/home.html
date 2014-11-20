@@ -1,0 +1,59 @@
+		<!-- Start: Header -->
+		<header id="header">
+			<div class="container">
+				<div class="row">
+					<div class="column two-thirds">
+						<h1>Domain for sale<span>.</span></h1>
+						<div class="intro">{{domain.name}} is now available for sale. Hurry and make an offer:</div>
+					</div>
+				</div>
+			</div>
+		</header>
+		<!-- End: Header -->
+
+		<!-- Start: Main Section -->
+		<section id="main">
+			<div class="container separator">
+				<div class="row">
+					<!-- Start: Minimum Bid Value -->
+					<div class="column one-third">
+						<div id="minimum-bid">
+							<span class="minimum-bid-value">{{domain.price}}</span>
+
+							<p>Current minimum bid in USD</p>
+						</div>
+					</div>
+					<!-- End: Minimum Bid Value -->
+
+					<!-- Start: Form -->
+					<div class="column one-third">
+						<div id="form-message">
+							<span ng-show="send" class="form-message-success"><i class="icon-thumbs-up"></i> Your message was sent. Thank you!</span>
+						</div>
+						<form id="form-offer" name="offerForm" ng-submit="signupForm()" novalidate>
+							<input type="text" name="name" id="name" ng-model="offer.name" ng-minlength=3 required ng-click=clearText(offer.name)>
+							<label ng-show="offerForm.name.$error.required" class="error">Tell us your name</label>
+							<input type="email" name="email" id="email" ng-model="offer.email" required ng-click=clearText(offer.email)>
+							<label ng-show="offerForm.email.$error.required" class="error">Tell us your email</label>
+							<label ng-show="offerForm.email.$error.email" class="error">This is not a valid email</label>
+							<input type="number" name="bid" id="bid" ng-model="offer.bid" required ng-click=clearText(offer.bid)>
+							<label ng-show="offerForm.bid.$error.number" class="error">Bid value should be a number</label>
+							<label ng-show="offerForm.bid.$error.min" class="error">Bid value is small</label>
+							<button ng-disabled="!offerForm.$valid" ng-click="offerSend(offerForm)" class="button button-medium button-submit" id="submit-offer">Bid on this awesome domain name</button>
+						</form>
+					</div>
+					<!-- End: Form -->
+
+					<!-- Start: More Domains -->
+					<div class="column one-third text-right">
+						Other domains you might like:
+						<ul class="side-list">
+							<!--Other domains-->
+							<li ng-repeat="domain in domainOthers"><a href="http://{{domain.Name}}">{{domain.Name}}</a></li>
+						</ul>
+					</div>
+					<!-- End: More Domains -->
+				</div>
+			</div>
+		</section>
+		<!-- End: Main Section -->

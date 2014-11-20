@@ -1,0 +1,21 @@
+{
+  "ids": {
+    "User": 1,
+    "AccessToken": 1,
+    "ACL": 1,
+    "RoleMapping": 1,
+    "Role": 1,
+    "domain": 3
+  },
+  "models": {
+    "User": {},
+    "AccessToken": {},
+    "ACL": {},
+    "RoleMapping": {},
+    "Role": {},
+    "domain": {
+      "1": "{\"Name\":\"765i.com\",\"StartingPrice\":1000,\"id\":1}",
+      "2": "{\"Name\":\"765i.cn\",\"StartingPrice\":100,\"id\":2}"
+    }
+  }
+}

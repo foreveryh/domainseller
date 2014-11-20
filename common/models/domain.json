@@ -1,0 +1,19 @@
+{
+  "name": "domain",
+  "plural": "domains",
+  "base": "PersistedModel",
+  "properties": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "StartingPrice": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": []
+}
