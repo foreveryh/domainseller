@@ -26,7 +26,8 @@ angular.module('domain.home', ['ui.bootstrap','ui.utils','ui.router','ngAnimate'
 	}
 	$scope.domainOthers = [];
 	$scope.$on('$viewContentLoaded', function(){
-  	$http.get("http://test.765i.cn:3000/api/domains").
+		var domainsURL = "http://"+domainName+"/api/domains";
+  	$http.get(domainsURL).
   		success(function(data, status, headers, config){
   			var entry;
   			for (var i = data.length - 1; i >= 0; i--) {
@@ -44,7 +45,7 @@ angular.module('domain.home', ['ui.bootstrap','ui.utils','ui.router','ngAnimate'
   });
 	$scope.offer = {
 		name: "Tell me your name please",
-		email: "your@email",
+		email: "youremail@",
 		bid: 0,
 		host: domainName
 	};
@@ -62,7 +63,7 @@ angular.module('domain.home', ['ui.bootstrap','ui.utils','ui.router','ngAnimate'
 			return;
 		}
 		var offerURL = "http://"+domainName+"/sendoffer";
-		var responsePromise = $http.post("http://test.765i.cn:3000/sendoffer", $scope.offer, {});
+		var responsePromise = $http.post(offerURL, $scope.offer, {});
     responsePromise.success(function(dataFromServer, status, headers, config) {
     	alert("Submitting form successed!");
     });
